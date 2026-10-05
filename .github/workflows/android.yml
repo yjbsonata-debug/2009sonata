@@ -1,3 +1,4 @@
+yaml
 name: Android CI
 
 on:
@@ -23,5 +24,5 @@ jobs:
     - name: Change wrapper permissions
       run: chmod +x gradlew
 
-    - name: Build with Gradle (Ignore Errors option)
+    - name: Build with Gradle
       run: ./gradlew assembleDebug --stacktrace --no-daemon
