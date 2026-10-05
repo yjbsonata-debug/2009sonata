@@ -15,18 +15,12 @@ jobs:
     - name: set up JDK 17
       uses: actions/setup-java@v4
       with:
-        java-version: '17'
+        java-version: '17' # 만약 실패하면 이 부분을 '11' 또는 '21'로 변경해 보세요
         distribution: 'temurin'
         cache: gradle
 
-    - name: Grant execute permission for gradlew
+    - name: Change wrapper permissions
       run: chmod +x gradlew
 
     - name: Build with Gradle
-      run: ./gradlew assembleDebug
-
-    - name: Upload APK
-      uses: actions/upload-artifact@v4
-      with:
-        name: app-debug
-        path: app/build/outputs/apk/debug/app-debug.apk
+      run: ./gradlew assembleDebug --stacktrace
