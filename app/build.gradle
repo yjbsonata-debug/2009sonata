@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId 'kr.sonatadrive.app'
         minSdk 23
-        targetSdk 29
+        targetSdk 35 // 최신 규격 호환을 위해 29에서 35로 수정했습니다.
         versionCode 101
         versionName '1.0.1'
     }
