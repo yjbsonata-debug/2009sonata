@@ -1,9 +1,8 @@
-yaml
 name: Android CI
 
 on:
   push:
-    branches: [ "main", "master" ] # 코드가 올라온 브랜치 이름에 맞게 작동합니다
+    branches: [ "main", "master" ]
 
 jobs:
   build:
