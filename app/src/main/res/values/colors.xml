@@ -1,0 +1,9 @@
+<resources>
+    <color name="sd_bg">#090C10</color>
+    <color name="sd_card">#151A21</color>
+    <color name="sd_text">#F5F7FA</color>
+    <color name="sd_muted">#8D98A6</color>
+    <color name="sd_cyan">#67D4F5</color>
+    <color name="sd_green">#55D98A</color>
+    <color name="sd_orange">#FFB45C</color>
+</resources>

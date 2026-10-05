@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#090C10"
+    android:paddingLeft="18dp" android:paddingRight="18dp"
+    android:paddingTop="12dp" android:paddingBottom="10dp"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <!-- Vehicle header: optimized for 1280x720 landscape -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="54dp" android:gravity="center_vertical">
+        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center_vertical" android:orientation="vertical">
+            <TextView android:text="SONATA DRIVE" android:textColor="#F5F7FA" android:textSize="22sp" android:textStyle="bold" android:letterSpacing="0.04" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:text="SONATA 2.0  ·  VEHICLE MONITOR" android:textColor="#687482" android:textSize="10sp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView android:id="@+id/obdStatus" android:text="●  OBD 연결 대기" android:textColor="#FFB45C" android:textSize="14sp" android:gravity="center_vertical" android:paddingLeft="14dp" android:paddingRight="14dp" android:background="@drawable/bg_card" android:layout_width="wrap_content" android:layout_height="40dp"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="horizontal" android:layout_marginTop="10dp">
+        <!-- LEFT: driving dashboard -->
+        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.68" android:orientation="vertical">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1.15" android:orientation="horizontal">
+                <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1.15" android:background="@drawable/bg_card_strong" android:gravity="center_vertical" android:paddingLeft="24dp" android:orientation="vertical">
+                    <TextView android:text="현재 속도" android:textColor="#8D98A6" android:textSize="14sp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="bottom">
+                        <TextView android:id="@+id/speed" android:text="0" android:textColor="#F5F7FA" android:textSize="72sp" android:textStyle="bold" android:includeFontPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                        <TextView android:text=" km/h" android:textColor="#6E7B89" android:textSize="16sp" android:layout_marginBottom="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <TextView android:text="실시간 OBD-II 차량 속도" android:textColor="#596573" android:textSize="11sp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="0.72" android:layout_marginLeft="10dp" android:orientation="vertical">
+                    <include layout="@layout/tile_rpm" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"/>
+                    <include layout="@layout/tile_fuel" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="10dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="0.9" android:orientation="horizontal" android:layout_marginTop="10dp">
+                <include layout="@layout/tile_trip" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"/>
+                <include layout="@layout/tile_score" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginLeft="10dp"/>
+                <include layout="@layout/tile_temp" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginLeft="10dp"/>
+            </LinearLayout>
+
+            <TextView android:id="@+id/tip" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginTop="10dp" android:paddingLeft="16dp" android:gravity="center_vertical" android:background="@drawable/bg_accent" android:text="TIP  ·  부드러운 가속과 일정한 속도를 유지하면 연비에 유리합니다." android:textColor="#C8D8E1" android:textSize="12sp"/>
+        </LinearLayout>
+
+        <!-- RIGHT: diagnostics -->
+        <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="0.92" android:layout_marginLeft="12dp" android:orientation="vertical" android:background="@drawable/bg_card" android:padding="16dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="36dp" android:gravity="center_vertical">
+                <TextView android:text="차량 진단" android:textColor="#F5F7FA" android:textStyle="bold" android:textSize="18sp" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+                <TextView android:text="DTC" android:textColor="#667482" android:textSize="11sp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <TextView android:text="ENGINE" android:textColor="#697583" android:textSize="10sp" android:layout_marginTop="8dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/dtcText" android:text="고장코드 없음\n\nOBD 연결 후 DTC를 읽어주세요." android:textColor="#D5DBE2" android:textSize="15sp" android:gravity="center_vertical" android:padding="16dp" android:background="@drawable/bg_dtc" android:layout_marginTop="6dp" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"/>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="48dp" android:orientation="horizontal" android:layout_marginTop="10dp">
+                <Button android:id="@+id/connectBtn" android:text="OBD 연결" android:textColor="#DDE8ED" android:textSize="12sp" android:background="@drawable/bg_button_primary" android:stateListAnimator="@null" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"/>
+                <Button android:id="@+id/readDtcBtn" android:text="DTC 재검색" android:textColor="#DDE3E8" android:textSize="12sp" android:background="@drawable/bg_button" android:stateListAnimator="@null" android:layout_width="0dp" android:layout_weight="1" android:layout_marginLeft="7dp" android:layout_height="match_parent"/>
+            </LinearLayout>
+            <Button android:id="@+id/clearDtcBtn" android:text="고장코드 삭제" android:textColor="#FFCA91" android:textSize="12sp" android:background="@drawable/bg_button" android:stateListAnimator="@null" android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginTop="7dp"/>
+            <TextView android:text="※ 코드 삭제는 원인 수리를 대신하지 않습니다.\n   삭제 후 경고등 재발 여부를 확인하세요." android:textColor="#667482" android:textSize="10sp" android:lineSpacingExtra="2dp" android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Bottom navigation designed for finger use in the car -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="10dp" android:background="@drawable/bg_nav" android:gravity="center_vertical" android:paddingLeft="6dp" android:paddingRight="6dp">
+        <TextView android:text="●  대시보드" android:textColor="#67D4F5" android:textSize="12sp" android:gravity="center" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"/>
+        <TextView android:text="운전습관" android:textColor="#778391" android:textSize="12sp" android:gravity="center" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"/>
+        <TextView android:text="연비" android:textColor="#778391" android:textSize="12sp" android:gravity="center" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"/>
+        <TextView android:text="주유·주행기록" android:textColor="#778391" android:textSize="12sp" android:gravity="center" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"/>
+        <TextView android:text="설정" android:textColor="#778391" android:textSize="12sp" android:gravity="center" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,7 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:gravity="center" android:background="@drawable/bg_card"
+    android:padding="12dp" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent">
+    <TextView android:text="평균 연비" android:textColor="#9CA3AF" android:textSize="14sp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <TextView android:id="@+id/fuel" android:text="--.-" android:textColor="#7DD3FC" android:textSize="34sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <TextView android:text="km/L" android:textColor="#9CA3AF" android:textSize="13sp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+</LinearLayout>
