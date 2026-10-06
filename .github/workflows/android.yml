@@ -17,6 +17,15 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
+    # 핵심 해결책: 누락된 gradlew 빌드 엔진 파일이 없으면 가상 컴퓨터 내부에서 자동으로 생성해 줍니다.
+    - name: Check and Generate Gradle Wrapper if missing
+      run: |
+        if [ ! -f "gradlew" ]; then
+          echo "gradlew file is missing! Generating standard gradle wrapper..."
+          npm install -g gradle
+          gradle wrapper --gradle-version 8.7
+        fi
+
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
 
